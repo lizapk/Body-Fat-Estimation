@@ -3,22 +3,22 @@ import streamlit as st
 
 model = pickle.load(open('estimasi_bodyFat.sav', 'rb'))
 
-st.title('Percent body fat Prediction')
+st.title('Estimasi Persentase Body Fat')
 
-Density = st.number_input('Input Your Density (determined from underwater weighing)')
-Age = st.number_input('Input Your Age (Years Only)')
-Weight = st.number_input('Input Your Weight (lbs)')
-Height = st.number_input('Input Your Height(inchies)')
-Neck = st.number_input('Input Your Neck circumference (cm)')
-Chest = st.number_input('Input Your Chest circumference (cm)')
-Abdomen = st.number_input('Input Your Abdomen 2 circumference (cm)')
-Hip = st.number_input('Input Your Hip circumference (cm)')
-Thigh = st.number_input('Input Your Thigh circumference (cm)')
-Knee = st.number_input('Input Your Knee circumference (cm)')
-Ankle = st.number_input('Input Your Angkle circumference (cm)')
-Biceps = st.number_input('Input Your Biceps circumference (cm)')
-Forearm = st.number_input('Input Your Forearm circumference (cm)')
-Wrist = st.number_input('Input Your Wrist circumference (cm)')
+Density = st.number_input('Input Density (Kepadatan ditentukan dari penimbangan bawah air)')
+Age = st.number_input('Input Umur (tahun)')
+Weight = st.number_input('Input Berat Badan (lbs)')
+Height = st.number_input('Input Tinggi Badan(inchies)')
+Neck = st.number_input('Input Lingkar Leher (cm)')
+Chest = st.number_input('Input Lingkar Dada (cm)')
+Abdomen = st.number_input('Input Lingkar Perut (cm)')
+Hip = st.number_input('Input Lingkar Pinggul (cm)')
+Thigh = st.number_input('Input Lingkar Paha (cm)')
+Knee = st.number_input('Input Lingkar Lutut (cm)')
+Ankle = st.number_input('Input Lingkar Pergelangan Kaki (cm)')
+Biceps = st.number_input('Input Lingkar Bisep (cm)')
+Forearm = st.number_input('Input Lingkar Lengan bawah (cm)')
+Wrist = st.number_input('Input Lingkar Pergelangan Tangan (cm)')
 
 predict = ''
 
@@ -26,5 +26,5 @@ if st.button('Percent body fat Prediction'):
     predict = model.predict(
         [[Density,Age,Weight,Height,Neck,Chest,Abdomen,Hip,Thigh,Knee,Ankle,Biceps,Forearm,Wrist]]
     )
-    st.write ('Your Percent body fat Prediction is : ', predict)
-    st.write ('Your Over Weight in Kg : ', predict*Weight)
+    st.write ('Estimasi Persentase Lemak Tubuh : ', predict)
+    st.write ('Total Lemak Tubuh (Kg) : ', predict*Weight*0.453592)
