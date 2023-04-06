@@ -22,7 +22,7 @@ Wrist = st.number_input('Input Lingkar Pergelangan Tangan (cm)')
 
 predict = ''
 
-if st.button('Percent body fat Prediction'):
+if st.button('Proses'):
     predict = model.predict(
         [[Density,Age,Weight,Height,Neck,Chest,Abdomen,Hip,Thigh,Knee,Ankle,Biceps,Forearm,Wrist]]
     )
